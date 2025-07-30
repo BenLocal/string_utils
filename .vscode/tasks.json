@@ -5,15 +5,23 @@
             "label": "C/C++: clang build active file",
             "command": "/usr/bin/clang",
             "args": [
-                "-fcolor-diagnostics",
-                "-fansi-escape-codes",
+                // "-fcolor-diagnostics",
+                // "-fansi-escape-codes",
+                // "-finput-charset=UTF-8",
+                // "-fexec-charset=UTF-8",
+                // "-std=c99",
+                // "-Wall",
                 "-g",
                 "${file}",
                 "-o",
-                "${fileDirname}/${fileBasenameNoExtension}"
+                "${fileDirname}/${fileBasenameNoExtension}",
             ],
             "options": {
-                "cwd": "${fileDirname}"
+                "cwd": "${fileDirname}",
+                "env": {
+                    "LANG": "zh_CN.UTF-8",
+                    "LC_ALL": "zh_CN.UTF-8"
+                }
             },
             "problemMatcher": [
                 "$gcc"
